@@ -1,0 +1,44 @@
+Api: "https://xxx.ngrok-free.app/sdapi/v1/txt2img"  # webui api地址，要带有sdapi/v1/txt2img
+SaveDir: "./data"     # 生成图片保存地址
+RunningState: true    # 是否一直执行
+Data:
+  - prompt: a dog
+    negative_prompt: >-
+      EasyNegative,bad-hands-5,(((worst quality, low quality))),, lower arms,hands,palms, 
+      (grab clothes, grab dress, grab skirt)
+    sampler_index: DPM++ 2M Karras
+    seed: -1
+    batch_size: 4
+    steps: 20
+    cfg_scale: 8
+    width: 640
+    height: 860
+    restore_faces: false
+    send_images: true
+    save_images: false
+    alwayson_scripts:
+      ADetailer:
+        args:
+          - ad_model: face_yolov8n.pt
+            ad_prompt: beautiful face
+            ad_negative_prompt: EasyNegative
+  - prompt: a cat
+    negative_prompt: >-
+      EasyNegative,bad-hands-5,(((worst quality, low quality))),, lower arms,hands,palms,
+      (grab clothes, grab dress, grab skirt)
+    sampler_index: DPM++ 2M Karras
+    seed: -1
+    batch_size: 4
+    steps: 20
+    cfg_scale: 8
+    width: 640
+    height: 860
+    restore_faces: false
+    send_images: true
+    save_images: false
+    alwayson_scripts:
+      ADetailer:
+        args:
+          - ad_model: face_yolov8n.pt
+            ad_prompt: beautiful face
+            ad_negative_prompt: EasyNegative
